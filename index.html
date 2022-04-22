@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 헤더 네비게이션</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <style>
+        * {margin: 0; padding: 0;}
+        li {list-style: none;}
+        a {text-decoration: none; color: #333;}
+        body {color: #333;}
+         
+        .m_nav {display: none;}
+        .m_menu {display: none;}
+        header {
+            width: calc(100% - 100px);
+            height: 100px;
+            margin: 0 auto;
+            position: relative;
+            top: 30px;
+            left: 0;
+            background-color: rgba(255, 183, 0, 0.85);
+            z-index: 9;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1%;
+            box-sizing: border-box;
+        }
+        header a {
+            color: #fff;
+        }
+        header h1 a {
+            position: absolute;
+            top: 50%;
+            left: 1%;
+            transform: translateY(-50%);
+        } 
+        header nav ul {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+        header nav ul li a {
+            padding: 0 30px;
+        }
+        .main_visual {
+            height: 100vh;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+        .main_visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .main_visual div {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            font-size: 50px;
+        }
+        .main_visual div p {
+            font-size: 25px;
+        }
+
+        .google_map {  
+            padding:  100px 0;
+            margin-top: 100vh;
+            position: relative;
+            z-index: 9;
+            background-color: #fff;
+        }
+        .google_map .cont {
+            max-width: 1280px;
+            width: calc(100% - 40px);
+            margin: 0 auto;
+        }
+        .google_map .cont div h4 {
+            font-size: 25px;
+        }
+        .google_map .cont  div p {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .google_map .cont  div dl {
+            display: flex;
+            margin: 30px 0 40px;
+        }
+        .google_map .cont  div dl dt {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .google_map .cont  div dl dd {
+            margin-right: 30px;
+        }
+        .google_map .cont  iframe {
+            width: 100%;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .pc {display: none;} 
+            .m_nav {display: none;} 
+
+            .m_menu span {position: absolute; left: -9999px;}
+            .m_menu {height:100%; display: flex;align-items: center;font-size: 30px; color: #fff;}
+            .m_nav {
+                width: 95%;
+                height: 100%;
+                position: fixed; 
+                left: 0;
+                top: 0;
+                z-index: 9;
+                background-color: rgba(255, 183, 0);
+            }
+            .m_nav ul {
+                
+                
+                color: #333;
+                display: block;
+               
+
+            }
+            .m_nav ul li a {color:#333;}
+             
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function(){
+            $('.m_menu').click(function(){
+                $('.m_nav').show();
+            });
+            $('.main_visual').click(function(){
+                $('.m_nav').hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="#">
+                <img src="images/logo/starbucks.png" alt="로고" />
+            </a>
+        </h1>
+        <nav class="pc">
+            <ul>
+                <li><a href="#">조형대학소개</a></li>
+                <li><a href="#">디자인컨버전스학부</a></li>
+                <li><a href="#">영상애니메이션학부</a></li>
+                <li><a href="#">조형대학소개</a></li>
+                <li><a href="#">조형대학소개</a></li>
+            </ul>
+        </nav><!-- .pc end -->
+
+        <i class="xi-bars m_menu"><span>메뉴보기</span></i>
+        <nav class="m_nav">
+            <ul>
+                <li><a href="#">조형대학소개</a></li>
+                <li><a href="#">디자인컨버전스학부</a></li>
+                <li><a href="#">영상애니메이션학부</a></li>
+                <li><a href="#">조형대학소개</a></li>
+                <li><a href="#">조형대학소개</a></li>
+            </ul>
+        </nav><!-- .pc end -->
+    </header>
+    <section class="main_visual">
+        <img src="images/city05.jpg" alt="도시밤야경" />
+        <div>
+            <h2>main visual title</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+    </section><!-- .main_visual end -->
+    <section class="google_map">
+        <div class="cont">
+            <div>
+                <h4>그린컴퓨터아카데미 부산점</h4>
+                <p>부산광역시 부산진구 부전동 중앙대로 688</p>
+                <dl>
+                    <dt>Tel.</dt>
+                    <dd><a href="tel:010-0000-0000">010-0000-0000</a></dd>
+                    <dt>Fel.</dt>
+                    <dd><a href="tel:051-0000-0000">010-0000-0000</a></dd>
+                </dl>
+            </div>
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.109738014023!2d129.0584034280591!3d35.153883847282145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568eb70f147a9c9%3A0x5f8432a247bb69fa!2z6re466aw7Lu07ZOo7YSw7JWE7Lm0642w66-4IOu2gOyCsOy6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1650603040840!5m2!1sko!2skr" width="1280" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div><!-- .cont -->
+        
+    </section><!-- .google_map end -->
+</body>
+</html>
